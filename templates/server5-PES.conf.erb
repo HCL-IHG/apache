@@ -1,0 +1,33 @@
+input {
+    kafka {
+        bootstrap_servers => "<%= @edakafkasvr.join(',') %>"
+        topics => "pms_events_process_v1"
+        codec => "json"
+        consumer_threads => "5"
+        connections_max_idle_ms => "60000"
+        heartbeat_interval_ms => "3000"
+        decorate_events => true
+        group_id => "pes-eda-consumer-grp"
+        add_field => {
+            "myexchange" => "pes-eda"
+        }
+      }
+    }
+
+output {
+    if [myexchange] == "pes-eda" {
+      elasticsearch {
+        hosts => <%= @elasticsearchsvr5_cluster1 %>
+        index => "<%= node['Datacenter'].downcase -%>-pes-eda-%{+YYYY.MM.dd}"
+        template => "/usr/share/logstash/elasticsearch-template5-pes-eda.json"
+        template_name => "<%= node['Datacenter'].downcase -%>-pes-eda"
+        template_overwrite => true
+        user => elastic
+        password => "elk5@IHG!"
+      }
+    }
+
+  if "_grokparsefailure" in [tags] {
+    file { path => "/local/logs/logstash/log.fails" }
+  }
+}
