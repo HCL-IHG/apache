@@ -1,2 +1,10 @@
 default['logstash']['vers'] = '2.4.0-1'
 default['nodeipaddress'] = '2.4.6.8'
+default['edakafka']['Development'] = ['VA1IHGDEIS69:9092', 'VA1IHGDEIS70:9092', 'VA1IHGDEIS77:9092']
+default['edakafka']['Performance'] = ['iadd1eledamr001:9092', 'iadd1eledamr002:9092', 'iadd1eledamr003:9092', 'iadd1eledamr004:9092']
+default['edakafka']['Staging'] = ['iadd1sledamr006:9092', 'iadd1sledamr007:9092', 'iadd1sledamr008:9092', 'iadd1sledamr009:9092']
+default['edakafka']['Production'] = ['iadd1pledamr001:9092', 'iadd1pledamr002:9092', 'iadd1pledamr003:9092', 'iadd1pledamr004:9092', 'iadd1pledamr005:9092', 'iadd1pledamr006:9092', 'iadd1pledamr007:9092', 'iadd1pledamr008:9092']
+default['elasticsearch5']['Production']['cluster2'] = ['iadd1pli02dg037:9200', 'iadd1pli02dg042:9200', 'iadd1pli02dg041:9200', 'iadd1pli02dg044:9200', 'iadd1pli02dg038:9200', 'iadd1pli02dg045:9200', 'iadd1pli02dg036:9200', 'iadd1pli02dg039:9200', 'iadd1pli02dg040:9200', 'iadd1pli02dg043:9200']
+default['elasticsearch5']['Production']['cluster1'] = ['iadd1pli02dg053:9200', 'iadd1pli02dg054:9200', 'iadd1pli02dg055:9200', 'iadd1pli02dg056:9200', 'iadd1pli02dg057:9200', 'iadd1pli02dg058:9200']
+default['elasticsearch5']['Staging']['cluster1'] = ['iadd1sli02dg001:9200', 'iadd1sli02dg002:9200', 'iadd1sli02dg004:9200', 'iadd1sli02dg005:9200', 'iadd1sli02dg006:9200']
+default['elasticsearch5']['Development']['cluster1'] = ['va1ihgdsys1224:9200', 'va1ihgdsys1225:9200', 'va1ihgdsys1226:9200']  
