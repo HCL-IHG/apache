@@ -18,9 +18,9 @@ output {
     if [myexchange] == "pes-eda" {
       elasticsearch {
         hosts => <%= @elasticsearchsvr5_cluster1 %>
-        index => "<%= node['Datacenter'].downcase -%>-pes-eda-%{+YYYY.MM.dd}"
+<%#        index => "<%= node['Datacenter'].downcase -%>-pes-eda-%{+YYYY.MM.dd}" %>
         template => "/usr/share/logstash/elasticsearch-template5-pes-eda.json"
-        template_name => "<%= node['Datacenter'].downcase -%>-pes-eda"
+<%#        template_name => "<%= node['Datacenter'].downcase -%>-pes-eda" %>
         template_overwrite => true
         user => elastic
         password => "elk5@IHG!"
